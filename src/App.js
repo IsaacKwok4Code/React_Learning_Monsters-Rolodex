@@ -36,6 +36,8 @@ class App extends Component {
       monsters: [],
       searchField: ''
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   //componentDisMount is used when component on loading
@@ -49,9 +51,14 @@ class App extends Component {
     this.setState({ searchField: event.target.value });
   };
 
+  handleChange = e => {
+    this.setState({searchField: e.target.value});
+  }
+
   render() {
 
     const { monsters, searchField } = this.state;
+
     const filteredMonsters = monsters.filter(monster =>
       monster.name.toLowerCase().includes(searchField.toLowerCase())
     );
