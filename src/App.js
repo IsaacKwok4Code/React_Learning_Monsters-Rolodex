@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
-import logo from './logo.svg';
-import { CardList } from './components/card-list/card-list.component';
-import { SearchBox } from './components/search-box/search-box.component';
+import { CardList } from './components/card-list/card-list';
+import { SearchBox } from './components/search-box/search-box';
 import './App.css';
 
 /*
@@ -11,7 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello! my name is Yin.
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -26,18 +25,15 @@ function App() {
   );
 }
 */
-
 class App extends Component {
-
   constructor() {
     super();
-
     this.state = {
       monsters: [],
       searchField: ''
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   //componentDisMount is used when component on loading
@@ -51,14 +47,14 @@ class App extends Component {
     this.setState({ searchField: event.target.value });
   };
 
+  /*
   handleChange = e => {
     this.setState({searchField: e.target.value});
   }
+  */
 
   render() {
-
     const { monsters, searchField } = this.state;
-
     const filteredMonsters = monsters.filter(monster =>
       monster.name.toLowerCase().includes(searchField.toLowerCase())
     );
@@ -71,6 +67,6 @@ class App extends Component {
       </div>
     );
   }
-}
 
+}
 export default App;
